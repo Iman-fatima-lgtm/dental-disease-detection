@@ -1,30 +1,31 @@
-# 🧠 Brain Tumor Detection using YOLOv8
+# 🦷 Dental Disease Detection using YOLOv8
 
-This project implements a **Brain Tumor Detection System** using **YOLOv8**, a deep learning-based object detection model. The system is built and tested in **Google Colab** and utilizes **MRI scans** to detect and localize tumors in real time. It’s designed as an assistive tool for medical professionals to improve diagnostic accuracy and speed.
-
----
-
-## 🚀 Project Summary
-
-Brain tumors are a critical health threat requiring timely and accurate diagnosis. Manual inspection of MRI images is time-consuming, subjective, and error-prone. This project addresses those limitations by applying YOLOv8 to automatically detect tumor regions in brain MRI scans, using a fast and accurate computer vision pipeline.
-
-The system is accessible via a **Gradio web interface**, allowing users to upload an image and receive annotated predictions with tumor bounding boxes.
+This project implements a **Dental Disease Detection System** using **YOLOv8**, a state-of-the-art object detection model. It is developed in **Google Colab** and detects dental abnormalities or diseases from intraoral or panoramic dental images. The goal is to assist dentists and radiologists in identifying issues such as cavities, plaque, root infections, and more through real-time AI-driven image analysis.
 
 ---
 
-## 🧠 Project Goals
+## 📄 Project Summary
 
-- Automate brain tumor detection using MRI images
-- Achieve real-time inference with YOLOv8
-- Design a user-friendly interface using Gradio
-- Improve detection accuracy while reducing false negatives
-- Enable accessibility for low-resource settings
+Manual diagnosis of dental diseases through X-rays or oral imagery is time-consuming, prone to error, and heavily reliant on expert knowledge. This system leverages **YOLOv8** to automate the detection of dental anomalies in a fast, accurate, and consistent manner.
+
+The system is deployed using **Gradio**, enabling users to upload dental images via a browser and receive annotated output images showing detected disease regions.
 
 ---
 
-## 📁 Dataset Format
+## 🎯 Objectives
 
-Dataset is expected in **YOLOv8-compatible format**:
+- Automate detection of dental diseases from images
+- Provide bounding box predictions for common dental issues
+- Deliver real-time detection via a lightweight Gradio app
+- Improve diagnostic support in dental clinics and academic settings
+
+---
+
+## 📁 Dataset Structure
+
+The dataset should follow YOLOv8's expected format:
+
+
 
 data/
 ├── images/
@@ -101,10 +102,10 @@ def detect(image):
     results = model(image)
     return results[0].plot()
 
-gr.Interface(fn=detect, inputs="image", outputs="image", title="Brain Tumor Detector").launch(share=True)
+gr.Interface(fn=detect, inputs="image", outputs="image", title="Dental Disease Detector").launch(share=True)
 🧪 Testing Scenarios
 Test Case	Description
-✅ Image Upload	Upload valid MRI image and view detection result
+✅ Image Upload	Upload valid  image and view detection result
 ✅ Invalid Image	Handle unsupported or corrupted files gracefully
 ✅ Accuracy Check	Verify bounding box quality & model confidence
 
@@ -118,9 +119,14 @@ Compliant with ethical AI and data protection laws
 📈 Future Enhancements
 Expand to 3D MRI and DICOM formats
 
-Add tumor classification (e.g., glioma, meningioma)
-
-Improve detection of small/silent tumors
+Add Disease classification (e.g.,Calculus
+  - Plaque
+  - caries
+  - gingivitis
+  - lessions
+  - tooth discoloration
+  - ulcer
+  - xerostomia)
 
 Integrate with PACS/EMR hospital systems
 
